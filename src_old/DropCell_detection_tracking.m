@@ -206,6 +206,11 @@ end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+prompt = {'Enter index of the droplet to be tracked'};
+dlgtitle = 'iDroplet_to_track';
+definput = {'100'};
+iDroplet_to_track=str2double(cell2mat(inputdlg(prompt,dlgtitle,[1 40],definput)));
+
 fprintf('4/ Tracking droplet n=%d at t=%s \n',iDroplet_to_track,t_to_track);
 
 extensionPix=round(extension_factor*mean(radiiDroplet));
@@ -218,11 +223,6 @@ ATRACK=im2double(imread(fullfile(folderdata,char(tiffilesBF(sbf)))));
 ATRACK=medfilt2(ATRACK,[3 3]);
 MedianInt_BF=median(ATRACK(:));
 mapDroplets_end=zeros(size(ATRACKini));
-
-prompt = {'Enter index of the droplet to be tracked'};
-dlgtitle = 'iDroplet_to_track';
-definput = {'100'};
-iDroplet_to_track=str2double(cell2mat(inputdlg(prompt,dlgtitle,[1 40],definput)));
 
     if (centersDroplet(iDroplet_to_track,1)-radiiDroplet(iDroplet_to_track)-extensionPix)>=1 && (centersDroplet(iDroplet_to_track,2)-radiiDroplet(iDroplet_to_track)-extensionPix)>=1 ...
                 && (centersDroplet(iDroplet_to_track,1)+radiiDroplet(iDroplet_to_track)+extensionPix)<=size(ATRACKini,2) && (centersDroplet(iDroplet_to_track,2)+radiiDroplet(iDroplet_to_track)+extensionPix)<=size(ATRACKini,1)

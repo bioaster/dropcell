@@ -10,7 +10,6 @@ function [field_number, time_number, time_to_track] = get_image_time_field(file)
 % 
 %	INPUT 
 % file: image file name
-% path: image folder complete path
 %  
 %	OUTPUTS 
 % field_number: image field name
