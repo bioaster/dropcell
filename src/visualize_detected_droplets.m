@@ -13,15 +13,15 @@ function [overlay_fullname] = visualize_detected_droplets(im, ...
 % 
 %	INPUT 
 % im: brightfield image
+% strct_image: structure of the input image acquisition parameters
+%       .field_number: index of the field of view (string)
+%       .time_number: time point of the field of view (string)
+% droplist: structure of droplet parameters
+%       .n_droplets: number of whole droplets in the image
+%       .centers_droplet: matrix (size: n_droplets x 2) of coordinates (x and y, in pixel) of droplet centers
+%       .radii_droplet: vector (length: n_droplets) of droplet radii (in pixel)
 % folderesults: folder in which the output image will be saved
-% field_number: index of the field of view (string)
-% time_number: time point of the field of view (string)
-% n_droplets: number of whole droplets in the image
-% centers_droplet: matrix (size: n_droplets x 2) of coordinates (x and y, in pixel) of droplet centers
-% radii_droplet: vector (length: n_droplets) of droplet radii (in pixel)
-% linewidth: line width of the drawn circles in final image
-% fontsize: font size of the text in final image
-%  
+%   
 %	OUTPUTS 
 % overlay_fullname: full name of the saved png overlay image
 % 

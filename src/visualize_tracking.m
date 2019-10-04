@@ -16,21 +16,23 @@ function [overlay_fullname] = visualize_tracking(im_droplet_ini, im_droplet_ini_
 %                                         extension_pix, csdil, folderesults)
 % 
 %	INPUT 
-% im_droplet_ini:
-% im_droplet_ini_ext:
-% im_droplet_fin:
-% xoffset:
-% yoffset:
+% im_droplet_ini: template of the droplet at ti to be tracked at ti+1 
+% im_droplet_ini_ext: square image of center C at ti, and of side equal to
+%                     2x(1+extension_pix)R
+% im_droplet_fin: square image of center C at ti+1, and of side equal to
+%                 2x(1+extension_pix)R 
+% xoffset: x offset found by the autocorrelation algorithm between
+%          im_droplet_ini and im_droplet_fin
+% yoffset: y offset found by the autocorrelation algorithm between
+%          im_droplet_ini and im_droplet_fin
 % strct_image: structure containing time_number, field_number, and
 %              time_to_track parameters
 % i_droplet_to_track: index of the droplet being tracked
 % extension_pix: folder in which the output image will be saved
-% csdil:
-%
-% field_number: index of the field of view (string)
-% time_number: time point of the field of view (string)
-%  
-%	OUTPUTS 
+% csdil: parameter used for template generation
+% folderesults: folder in which the output image will be saved
+% 
+%   OUTPUTS 
 % overlay_fullname: full name of the saved png image
 % 
 %	EXAMPLES

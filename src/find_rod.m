@@ -11,8 +11,13 @@ function [MR, numObjR] = find_rod(im_droplet_for_MSER, rod, ...
 %	INPUT 
 % im_droplet_for_MSER: 8 it image image of the droplet, prepared for using
 %                       vl_mser function (VL_feat library)
-% rod: structure pof parameters used to find intradroplet magnetic rod in
-%      im_droplet_for_MSER image
+% rod: structure containing rod detection parameters
+%       .width_search_zone
+%       .mindiv
+%       .maxvar
+%       .delta
+%       .minarea
+%       .maxarea
 % size_drop: size of droplet image
 % structuring_element_size: size of the structuring element (disk) used for
 %                           image processing

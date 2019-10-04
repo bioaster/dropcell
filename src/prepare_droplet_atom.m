@@ -15,8 +15,10 @@ function [imbf_drop, imcy5_drop, ...
 % imbf: brightfield image of the field of droplets
 % imcy5: CY5 image of the field of droplets
 % i_droplet: index of the droplet being analyzed
-% centers_droplet: matrix of coordinates (x and y, in pixel) of all droplet centers
-% radii_droplet: vector of all droplet radii (in pixel)
+% droplist: structure of droplet parameters
+%       .n_droplets: number of detected whole droplets in the image
+%       .centers_droplet: matrix (n_droplets x 2) of coordinates (x and y, in pixel) of droplet centers
+%       .radii_droplet: vector (n_droplets) of droplet radii (in pixel)
 % map_droplets: label matrix of the droplet map
 % 
 %	OUTPUTS 

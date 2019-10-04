@@ -7,9 +7,10 @@ function [xx, yy, map_droplets] = build_droplet_map(im,droplist)
 % 
 %	INPUT 
 % im: brightfield image
-% n_droplets: number of detected whole droplets in the image
-% centers_droplet: matrix (n_droplets x 2) of coordinates (x and y, in pixel) of droplet centers
-% radii_droplet: vector (n_droplets) of droplet radii (in pixel)
+% droplist: structure of droplet parameters
+%       .n_droplets: number of detected whole droplets in the image
+%       .centers_droplet: matrix (n_droplets x 2) of coordinates (x and y, in pixel) of droplet centers
+%       .radii_droplet: vector (n_droplets) of droplet radii (in pixel)
 %
 %  
 %	OUTPUTS 

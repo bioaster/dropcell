@@ -9,38 +9,46 @@ function [imbf_drop, imcy5_drop, LOIC, numObjC, ...
 % detected intradroplet rod and live cells 
 % 
 %   Usage 
-% [LOIC, numObjC, MR, ...
-%  overlay_fullname] = droplet_analysis(imbf, imcy5, field_number, time_number, ...
+% [imbf_drop, imcy5_drop, LOIC, numObjC, ...
+%  MR,numObjR] = droplet_analysis(imbf, imcy5, ...
 %                                       i_droplet, map_droplets, ...
 %                                       droplist, ...
-%                                       structuring_element_size, folderesults)
+%                                       rod,structuring_element_size, folderesults)
 % 
 %	INPUT 
 % imbf: brightfield image of the field of droplets
 % imcy5: CY5 image of the same field of droplets 
-% field_number: index of the field of view (string)
-% time_number: time point of the field of view (string)
 % i_droplet: index of the droplet being analyzed
 % map_droplets: label matrix of the droplet map
-% centers_droplet: matrix (size: n_droplets x 2) of coordinates (x and y, in pixel) of droplet centers
-% radii_droplet: vector (length: n_droplets) of droplet radii (in pixel)
+% droplist: structure of droplet parameters
+%       .n_droplets: number of detected whole droplets in the image
+%       .centers_droplet: matrix (n_droplets x 2) of coordinates (x and y, in pixel) of droplet centers
+%       .radii_droplet: vector (n_droplets) of droplet radii (in pixel)
 % rod: structure containing rod detection parameters
+%       .width_search_zone
+%       .mindiv
+%       .maxvar
+%       .delta
+%       .minarea
+%       .maxarea
 % structuring_element_size: size of the structuring element (disk) used for
 %                         image processing
 % folderesults: folder in which the output image will be saved
 %  
 %	OUTPUTS 
+% imbf_drop: cropped brightfield image of the droplet (index i_droplet) being analyzed
+% imcy5_drop: cropped CY5 image of the droplet being analyzed
 % LOIC: label matrix of the live cells (CY5 positive) contained in the analyzed droplet
-% numObjC: number of live cells (CY5 positive) contained in the analyzed droplet
+% numObjC: number of live cells (CY5 positive) detected in the analyzed droplet
 % MR: mask of the magnetic rod contained in the analyzed droplet
-% overlay_fullname: full name of the saved png overlay image
-% 
+% numObjR: number of rods detected on the brightfield image of the analyzed droplet
+%
 %	EXAMPLES
-% [LOIC, numObjC, MR, ...
-%  overlay_fullname] = droplet_analysis(imbf, imcy5, field_number, time_number, ...
+% [imbf_drop, imcy5_drop, LOIC, numObjC, ...
+%  MR,numObjR] = droplet_analysis(imbf, imcy5, ...
 %                                       i_droplet, map_droplets, ...
 %                                       droplist, ...
-%                                       structuring_element_size, folderesults)
+%                                       rod,structuring_element_size, folderesults)
 % 
 %   AUTHOR : DIXNEUF Sophie, BIOASTER
 %   CREATED : 2019-08-20

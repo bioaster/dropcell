@@ -18,21 +18,33 @@ function [im_droplet_ini, ...
 %                                      csdil)
 % 
 %	INPUT 
-% ATRACKini:
-% ATRACK:
+% ATRACKini: brightfiled image at one time point
+% ATRACK: brightfield image of the same field of view at a later time point
 % i_droplet_to_track: index of the droplet being tracked
-% extension_pix: folder in which the output image will be saved
-% droplist:
-% map_droplets_ini:
-% csdil:
+% extension_pix: parameter defining the size of the region in which the droplet
+%       is going to be tracked. If the droplet radius is R and has for center
+%       C at the original time point ti, it will be tracked
+%       at the following time point ti+1 in the square region centered at C and of
+%       side length 2x(1+extension_pix)R. It is calculated as function of the
+%       parameter extension_factor
+% droplist: structure of droplet parameters
+%       .n_droplets: number of whole droplets in the image
+%       .centers_droplet: matrix (size: n_droplets x 2) of coordinates (x and y, in pixel) of droplet centers
+%       .radii_droplet: vector (length: n_droplets) of droplet radii (in pixel)
+% map_droplets_ini: label matrix of the droplet map at initial time point
+% csdil: parameter used for the generation of the template im_droplet_ini
 %
 %  
 %	OUTPUTS 
-% im_droplet_ini:
-% im_droplet_ini_ext:
-% im_droplet_fin:
-% xoffset:
-% yoffset:
+% im_droplet_ini: template of the droplet at ti to be tracked at ti+1 
+% im_droplet_ini_ext: square image of center C at ti, and of side equal to
+%                     2x(1+extension_pix)R
+% im_droplet_fin: square image of center C at ti+1, and of side equal to
+%                 2x(1+extension_pix)R 
+% xoffset: x offset found by the autocorrelation algorithm between
+%          im_droplet_ini and im_droplet_fin
+% yoffset: y offset found by the autocorrelation algorithm between
+%          im_droplet_ini and im_droplet_fin 
 % 
 %	EXAMPLES
 % [im_droplet_ini, ...
@@ -73,7 +85,6 @@ im_droplet_fin = ATRACK( lineLim(1)-extension_pix : lineLim(2)+extension_pix, ..
                      colLim(1)-extension_pix : colLim(2)+extension_pix );
 im_droplet_ini_ext = ATRACKini( lineLim(1)-extension_pix : lineLim(2)+extension_pix, ...
                         colLim(1)-extension_pix : colLim(2)+extension_pix );
-
 
 cc = normxcorr2( im_droplet_ini / MedianInt_BFini, ...
                  im_droplet_fin / MedianInt_BF);
