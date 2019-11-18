@@ -9,13 +9,11 @@
 %   CREATED : 2019-08-20
 %--------------------------------------------------------------------------
 
-
 clear
 close all
 clc
 
 run parameters
-
 
 %% HIDE FIGURE WINDOWS
 set(0, 'DefaultFigureVisible', 'off')
@@ -26,7 +24,7 @@ set(0, 'DefaultAxesVisible', 'off')
 %% GET INPUT DATA
 fprintf('1/ Get input data \n')
 [filename_BF,folderdata] = uigetfile(...
-       'U:\UTEC08\Lyon\HOLO_DROPLETS\SAUVEGARDE_VM_REALISM\20171218_Icareb\*T01*BF.tif', ...
+       '', ...
        'Select the brightfield image of the field to be analyzed');
 [strct_image.field_number, ...
  strct_image.time_number, strct_image.time_to_track] = get_image_time_field(filename_BF);
