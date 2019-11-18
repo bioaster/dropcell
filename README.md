@@ -1,3 +1,4 @@
 # DROPCELL
 
-Detection and tracking of droplets from a single field and time point. REALISM project WP3, for publication
+Basic functions of detection of droplets and intra-droplet objects for one image of the microscfluidic chamber.
+Tracking of one droplet at the following time point.
