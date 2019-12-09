@@ -25,4 +25,4 @@ Version R2018a of MATLAB or newer version
 5. How to use
 
 Run main.m and select the brightfield image to be analyzed when asked via a dialog box.
-Object detection parameters can be changed in the parameters.m file.
+Object detection parameters can be changed in the parameters.m file. A test image data set is provided in the "data" subfolder. 
