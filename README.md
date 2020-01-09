@@ -15,8 +15,8 @@ CREATED : 2019-08-20
 Reads brightfield and CY5 images for one field of view (XY) and one time point (T)
 Detects droplets from the brightfield image.
 For each droplet, detects intradroplet cells on the CY5 image and the magnetic bead
-rod on the brightfield image, and saves the overlay image as a png file
-Tracks one desired droplet at the following time point (T+1)
+rod on the brightfield image, and saves the overlay image as a png file.
+Tracks one desired droplet at the following time point (T+1).
 
 4. Prerequisites for Deployment 
 
